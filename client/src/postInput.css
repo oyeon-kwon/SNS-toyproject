@@ -1,0 +1,10 @@
+.post-button {
+    border-radius: 20px;
+    padding: 10px 0;
+    font-size: 1rem;
+    background-color: aliceblue;
+    color: #3e7eff;
+    transition: all.5s ease;
+    width: 7rem;
+    margin: 0 auto;
+}
