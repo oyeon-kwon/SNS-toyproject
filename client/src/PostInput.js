@@ -7,12 +7,12 @@ function PostInput({ posts, setPosts }) {
 
   const inputContent = (e) => {
     let content = e.target.value
-    //!
-    let realcontent = {
+
+    let fullContent = {
       "content": content,
       "comment": []
     }
-    setContent(realcontent)
+    setContent(fullContent)
   }
 
   const createPost = () => {
