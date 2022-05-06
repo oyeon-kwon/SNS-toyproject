@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./post.css";
 
 function Post({ post }) {
@@ -6,7 +6,9 @@ function Post({ post }) {
   const [comment, setComment] = useState("")
   const [comments, setComments] = useState([]);
 
-  // TODO: 아악 코멘트가 이상해.. 3번째 게시물 코멘트가 새로운 글을 입력하면 2번째 게시물 코멘트로 바뀜
+  useEffect(() => {
+    setComments(post.comment)
+  }, [post.comment])
 
   const inputComment = (e) => {
       let comment = e.target.value
@@ -17,7 +19,8 @@ function Post({ post }) {
     if(comment === "") {
       return;
     } else {
-      setComments([comment, ...comments])
+      post.comment.unshift(comment)
+      setComments(post.comment)
       setComment("")
     }
   }
@@ -27,7 +30,8 @@ function Post({ post }) {
       if(comment === "") {
         return;
       } else {
-        setComments([comment, ...comments])
+        post.comment.unshift(comment)
+        setComments(post.comment)
         setComment("")
       }
     }
@@ -36,7 +40,7 @@ function Post({ post }) {
   return (
     <div className="posts">
         <div className="post-content">
-          {post}
+          {post.content}
           <div className="comment-count">댓글 {comments.length}개</div>          
         </div>
         <div className="comment-input-box">
@@ -45,9 +49,9 @@ function Post({ post }) {
         </div>
         <div className="comment-view-box">
             {
-                comments.map((comment, id) => {
-                    return <div className="comment" key={id}>{comment}</div>
-                })
+              comments.map((comment, id) => {
+                  return <div className="comment" key={id}>{comment}</div>
+              })
             }
         </div>
     </div>
