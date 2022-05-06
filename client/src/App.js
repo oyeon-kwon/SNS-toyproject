@@ -17,9 +17,9 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Login /> */}
-      <PostInput posts={posts} setPosts={setPosts}/>
-      <Feed posts={posts} />
+      <Login />
+      {/* <PostInput posts={posts} setPosts={setPosts}/>
+      <Feed posts={posts} /> */}
     </div>
   );
 }
