@@ -6,8 +6,8 @@ function Feed({ posts }) {
     return (
       <div>
           {
-              posts.map((post) => {
-                  return <Post post={post} />
+              posts.map((post, id) => {
+                  return <Post post={post} key={id}/>
               })
           }
       </div>

@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import './post.css';
+import React, { useState } from "react";
+import "./post.css";
 
 function Post({ post }) {
 
-  const [comment, setComment] = useState('')
-  const [comments, setComments] = useState(['댓글1', '댓글2', '댓글3']);
+  const [comment, setComment] = useState("")
+  const [comments, setComments] = useState([]);
 
-  // TODO: 댓글 수 보여주기
-  // TODO: input 창 초기화 구현
-  // TODO: 엔터쳤을 때 작동되게 구현
-  // TODO: 아무것도 입력하지 않았을 때는 작동 안되게 구현
+  // TODO: 아악 코멘트가 이상해.. 3번째 게시물 코멘트가 새로운 글을 입력하면 2번째 게시물 코멘트로 바뀜
 
   const inputComment = (e) => {
       let comment = e.target.value
@@ -17,24 +14,39 @@ function Post({ post }) {
   }
 
   const createComment = () => {
-    setComments([comment, ...comments])
+    if(comment === "") {
+      return;
+    } else {
+      setComments([comment, ...comments])
+      setComment("")
+    }
+  }
+
+  const enterKey = () => {
+    if(window.event.keyCode === 13) {
+      if(comment === "") {
+        return;
+      } else {
+        setComments([comment, ...comments])
+        setComment("")
+      }
+    }
   }
 
   return (
     <div className="posts">
         <div className="post-content">
           {post}
-          
+          <div className="comment-count">댓글 {comments.length}개</div>          
         </div>
-        <div className="comment-count">댓글 {comments.length}개</div>
         <div className="comment-input-box">
-            <input className="comment-input" type="text" placeholder="댓글을 입력하세요" onChange={inputComment}></input>
+            <input className="comment-input" type="text" placeholder="댓글을 입력하세요" onChange={inputComment} onKeyPress={enterKey} value={comment}></input>
             <span className="comment-button" onClick={createComment}>댓글 등록</span>
         </div>
         <div className="comment-view-box">
             {
-                comments.map((comment) => {
-                    return <div className="comment">{comment}</div>
+                comments.map((comment, id) => {
+                    return <div className="comment" key={id}>{comment}</div>
                 })
             }
         </div>

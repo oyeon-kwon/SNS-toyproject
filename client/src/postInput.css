@@ -1,15 +1,21 @@
+input:focus {
+    outline: none;
+}
+
 .post-input-box {
     width: 60%;
     margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .post-input {
     border: none;
-    width: 90%;
+    width: 80%;
     height: 30%;
     padding: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     border-radius: 20px;
     background-color: #e8e8e8;
 }
@@ -17,15 +23,17 @@
 .post-button {
     border-radius: 20px;
     padding: 10px 0;
-    font-size: 1rem;
-    background-color: aliceblue;
-    color: #3e7eff;
-    transition: all.5s ease;
-    width: 7rem;
-    margin: 0 auto;
-    margin-bottom: 2rem;
+    font-size: 0.8rem;
+    background-color: #227eff;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    width: 4rem;
+    height: 30%;
+    margin: 0 0 0 0.5rem;
 }
 
 .post-button:hover {
-    background-color: rgb(191, 191, 191);
+    background-color: #b6d5ff;
+    color: #227eff;
+    cursor: pointer;
 }

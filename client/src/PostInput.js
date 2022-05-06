@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './postInput.css';
 
 function PostInput({ posts, setPosts }) {
 
-  const [content, setContent] = useState('')
-
-  // TODO: input 창 초기화 구현
-  // TODO: 엔터쳤을 때 작동되게 구현
-  // TODO: 아무것도 입력하지 않았을 때는 작동 안되게 구현
+  const [content, setContent] = useState("")
 
   const inputContent = (e) => {
     let content = e.target.value
@@ -15,13 +11,29 @@ function PostInput({ posts, setPosts }) {
   }
 
   const createPost = () => {
-    setPosts([content, ...posts])
+    if(content === "") {
+      return;
+    } else {
+      setPosts([content, ...posts])
+      setContent("")
+    }
+  }
+
+  const enterKey = () => {
+    if(window.event.keyCode === 13) {
+      if(content === "") {
+        return;
+      } else {
+        setPosts([content, ...posts])
+        setContent("")
+      }
+    }
   }
 
   return (
     <div className="post-input-box">
-        <input className="post-input" placeholder="내용을 입력하세요" type="text" onChange={inputContent}></input>
-        <div className="post-button" onClick={createPost}>Post</div>
+        <input className="post-input" placeholder="내용을 입력하세요" type="text" value={content} onChange={inputContent} onKeyPress={enterKey}></input>
+        <div className="post-button" onClick={createPost}>게시</div>
     </div>
   );
 }
