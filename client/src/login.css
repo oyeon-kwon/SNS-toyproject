@@ -4,7 +4,6 @@ html {
   body {
     margin:0;
     padding:0;
-    font-family: sans-serif;
     background-color: #eceff2;
   }
   
@@ -15,16 +14,16 @@ html {
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,.5);
+    background: #ffffff;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+    color: #227eff;
   }
   
   .login-box h2 {
     margin: 0 0 30px;
     padding: 0;
-    color: #fff;
     text-align: center;
   }
   
@@ -36,39 +35,44 @@ html {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid #227eff;
     outline: none;
     background: transparent;
   }
+
   .login-box .user-box label {
     position: absolute;
     top:0;
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #227eff;
     pointer-events: none;
     transition: .5s;
   }
-  
+
   .login-box .user-box input:focus ~ label,
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #ffffff;
+    color: #227eff;
     font-size: 12px;
   }
 
   .submit-button {
     border-radius: 20px;
-    padding: 10px 0;
+    padding: 8px 0;
     font-size: 1rem;
-    background-color: aliceblue;
-    color: #3e7eff;
-    transition: all.5s ease;
-    width: 7rem;
+    background-color: #227eff;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    width: 6rem;
     margin: 0 auto;
+  }
+
+  .submit-button:hover {
+    background-color: #c7c7c7;
+    color: #227eff
   }
