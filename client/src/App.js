@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Signup from './Signup';
 import Login from './Login';
 import Feed from './Feed';
 import PostInput from './PostInput';
-import postList from './Data';
+import postList from './postData';
 
 function App() {
 
@@ -17,9 +18,10 @@ function App() {
 
   return (
     <div className="App">
-      <Login />
-      {/* <PostInput posts={posts} setPosts={setPosts}/>
-      <Feed posts={posts} /> */}
+      <Signup />
+      {/* <Login /> */}
+      {/* <PostInput posts={posts} setPosts={setPosts}/> */}
+      {/* <Feed posts={posts} /> */}
     </div>
   );
 }
