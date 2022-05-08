@@ -35,7 +35,6 @@ function Signup() {
         passwordDesc.current.style.display = "none"
         setPassword(inputPassword)
     }
-    console.log(password)
   }
 
   const registUser = () => {
