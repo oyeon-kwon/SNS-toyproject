@@ -17,7 +17,6 @@ function Login ({ setIsLogin }) {
   const getInputPassword = (e) => {
     const inputPassword = e.target.value;
     setPassword(inputPassword);
-    console.log(password);
   };
 
   const login = () => {
