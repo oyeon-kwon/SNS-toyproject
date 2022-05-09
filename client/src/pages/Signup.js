@@ -63,7 +63,8 @@ function Signup () {
     <div>
       <form>
         <div className='signup-box'>
-          <input type='text' placeholder='Username' className='signup-input' onChange={getInputUsername} onKeyPress={enterKey} value={username} />
+          <div className='signup-desc'>회원가입</div>
+          <input type='text' placeholder='Username' className='signup-input' onChange={getInputUsername} onKeyPress={enterKey} value={username || ''} />
           <div className='username confirm-desc' ref={usernameDesc}>이미 사용 중인 닉네임입니다.</div>
           <input type='password' placeholder='Password' className='signup-input' onChange={getInputPassword} onKeyPress={enterKey} />
           <div className='password confirm-desc' ref={passwordDesc}>비밀번호는 4자리 이상이어야 합니다.</div>
