@@ -28,7 +28,7 @@ function Login ({ setIsLogin }) {
           navigate('/');
         } else if (userList[i].username === username) {
           alert('비밀번호가 일치하지 않습니다.');
-        } else {
+        } else if (userList[i].username !== username && userList[i].password !== password) {
           alert('아이디와 비밀번호가 일치하지 않습니다.');
         }
       }
@@ -48,9 +48,10 @@ function Login ({ setIsLogin }) {
           if (userList[i].username === username && userList[i].password === password) {
             alert('로그인 되었습니다.');
             setIsLogin(true);
+            navigate('/');
           } else if (userList[i].username === username) {
             alert('비밀번호가 일치하지 않습니다.');
-          } else {
+          } else if (userList[i].username !== username && userList[i].password !== password) {
             alert('아이디와 비밀번호가 일치하지 않습니다.');
           }
         }

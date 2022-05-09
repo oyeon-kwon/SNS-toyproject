@@ -30,3 +30,20 @@
     font-size: 0.7rem;
     color: red;
 }
+
+.signup-button {
+    border-radius: 20px;
+    padding: 8px 0;
+    font-size: 1rem;
+    background-color: #227eff;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    width: 6rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  .signup-button:hover {
+    background-color: #c7c7c7;
+    color: #227eff
+  }
