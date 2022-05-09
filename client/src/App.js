@@ -9,51 +9,50 @@ import {
   Routes,
   Route,
   Link
-} from "react-router-dom";
-import logo from './moneelab.png'
+} from 'react-router-dom';
+import logo from './moneelab.png';
 
-function App() {
-
+function App () {
   const [posts, setPosts] = useState([]);
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
 
   useEffect(() => {
-    setPosts(postList)
-  }, [])
+    setPosts(postList);
+  }, []);
 
   const logout = () => {
-    isLogin(false)
-  }
+    isLogin(false);
+  };
 
   return (
     <div>
       <Router>
-      <div className="nav">
-        <span className="home-box">
-          <span className="nav-link">
-            <Link to="/"><img src={logo} className="logo" /></Link>
+        <div className='nav'>
+          <span className='home-box'>
+            <span className='nav-link'>
+              <Link to='/'><img src={logo} className='logo' /></Link>
+            </span>
           </span>
-        </span>
-        <span className="signup-login-box">
-          <span className="nav-link">
-            {
-              isLogin ? <Link to="/" onClick={logout}>로그아웃</Link>
-              : <Link to="/login">로그인</Link>
+          <span className='signup-login-box'>
+            <span className='nav-link'>
+              {
+              isLogin ? <Link to='/' onClick={logout}>로그아웃</Link>
+                : <Link to='/login'>로그인</Link>
             }
-            
+
+            </span>
+            <span className='nav-link'>
+              <Link to='/signup'>회원가입</Link>
+            </span>
           </span>
-          <span className="nav-link">
-            <Link to="/signup">회원가입</Link>
-          </span>
-        </span>
-      </div>
+        </div>
         <Routes>
-          <Route path="/signup" element={ <Signup /> } />
-          <Route path="/login" element={ <Login setIsLogin={setIsLogin} /> } />
-          <Route path="/" element={ <Feed posts={posts} setPosts={setPosts} isLogin={isLogin} /> } />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login setIsLogin={setIsLogin} />} />
+          <Route path='/' element={<Feed posts={posts} setPosts={setPosts} isLogin={isLogin} />} />
         </Routes>
-      
-    </Router>
+
+      </Router>
     </div>
   );
 }

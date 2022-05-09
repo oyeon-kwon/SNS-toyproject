@@ -1,65 +1,63 @@
 import React, { useEffect, useState } from 'react';
 import './postInput.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-function PostInput({ posts, setPosts, isLogin }) {
-
-  const [content, setContent] = useState({})
+function PostInput ({ posts, setPosts, isLogin }) {
+  const [content, setContent] = useState({});
   const navigate = useNavigate();
 
   const inputContent = (e) => {
-    let content = e.target.value
+    const content = e.target.value;
 
-    let fullContent = {
-      "content": content,
-      "comment": []
-    }
-    setContent(fullContent)
-  }
+    const fullContent = {
+      content: content,
+      comment: []
+    };
+    setContent(fullContent);
+  };
 
   const createPost = () => {
-    if(content.content === "") {
-      return;
+    if (content.content === '') {
+
     } else {
-      setPosts([content, ...posts])
+      setPosts([content, ...posts]);
       setContent({
-        "content": "",
-        "comment": []
-      })
+        content: '',
+        comment: []
+      });
     }
-  }
+  };
 
   const enterKey = () => {
-    if(window.event.keyCode === 13) {
-      if(content.content === "") {
-        return;
+    if (window.event.keyCode === 13) {
+      if (content.content === '') {
+
       } else {
-        setPosts([content, ...posts])
+        setPosts([content, ...posts]);
         setContent({
-          "content": "",
-          "comment": []
-        })
+          content: '',
+          comment: []
+        });
       }
     }
-  }
+  };
 
   const directLogin = () => {
-    navigate("/login")
-  }
+    navigate('/login');
+  };
 
   return (
-    <div className="post-input-box">
+    <div className='post-input-box'>
       {
-        isLogin ?
-        <>
-          <input className="post-input" placeholder="내용을 입력하세요" type="text" value={content.content} onChange={inputContent} onKeyPress={enterKey}></input>
-          <div className="post-button" onClick={createPost}>게시</div>
-        </>
-        : 
-        <>
-          <input className="post-input" placeholder="게시글 작성 기능은 로그인 후 이용할 수 있습니다." type="text" value="" readOnly></input>
-          <div className="post-button" onClick={directLogin} >로그인</div>
-        </>
+        isLogin
+          ? <>
+            <input className='post-input' placeholder='내용을 입력하세요' type='text' value={content.content} onChange={inputContent} onKeyPress={enterKey} />
+            <div className='post-button' onClick={createPost}>게시</div>
+          </>
+          : <>
+            <input className='post-input' placeholder='게시글 작성 기능은 로그인 후 이용할 수 있습니다.' type='text' value='' readOnly />
+            <div className='post-button' onClick={directLogin}>로그인</div>
+          </>
       }
 
     </div>
