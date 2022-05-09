@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './signup.css';
-import userList from './userData';
+import userList from '../data/userData';
 
 function Signup () {
   const [username, setUsername] = useState('');

@@ -1,6 +1,6 @@
 import './feed.css';
-import Post from './Post';
-import PostInput from './PostInput';
+import Post from '../components/Post';
+import PostInput from '../components/PostInput';
 
 function Feed ({ posts, setPosts, isLogin }) {
   return (

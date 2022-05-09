@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Signup from './Signup';
-import Login from './Login';
-import Feed from './Feed';
-import postList from './postData';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Feed from './pages/Feed';
+import postList from './data/postData';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link
 } from 'react-router-dom';
-import logo from './moneelab.png';
+import logo from './data/moneelab.png';
 
 function App () {
   const [posts, setPosts] = useState([]);

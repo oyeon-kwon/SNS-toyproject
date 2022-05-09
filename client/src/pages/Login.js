@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './login.css';
-import userList from './userData';
+import userList from '../data/userData';
 import { useNavigate } from 'react-router-dom';
 
 function Login ({ setIsLogin }) {
