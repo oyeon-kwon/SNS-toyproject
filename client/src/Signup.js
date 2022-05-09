@@ -12,15 +12,14 @@ function Signup() {
 
   const getInputUsername = (e) => {
     let inputUsername = e.target.value
+    setUsername(inputUsername)
 
     for(let i=0; i<userList.length; i++) {
         if(userList[i].username === inputUsername) {
             usernameDesc.current.style.display = "inline-block"
             usernameDesc.current.style.position = "relative"
-            setUsername("")
         } else {
             usernameDesc.current.style.display = "none"
-            setUsername(inputUsername)
         }
     }
   }

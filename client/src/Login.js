@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import './login.css';
 import userList from './userData';
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login( { setIsLogin }) {
 
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+
+  const navigate = useNavigate();
 
   const getInputUsername = (e) => {
     let inputUsername = e.target.value
@@ -23,7 +26,8 @@ function Login() {
       for(let i=0; i<userList.length; i++) {
         if(userList[i].username === username && userList[i].password === password) {
           alert("로그인 되었습니다.")
-          // TODO: 로그인이 된 경우, Feed로 라우팅
+          setIsLogin(true)
+          navigate("/")
         } else if(userList[i].username === username) {
           alert("비밀번호가 일치하지 않습니다.")
         } else {
@@ -45,7 +49,7 @@ const enterKey = () => {
       for(let i=0; i<userList.length; i++) {
         if(userList[i].username === username && userList[i].password === password) {
           alert("로그인 되었습니다.")
-          // TODO: 로그인이 된 경우, Feed로 라우팅
+          setIsLogin(true)
         } else if(userList[i].username === username) {
           alert("비밀번호가 일치하지 않습니다.")
         } else {

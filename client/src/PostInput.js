@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './postInput.css';
+import { useNavigate } from "react-router-dom";
 
-function PostInput({ posts, setPosts }) {
+function PostInput({ posts, setPosts, isLogin }) {
 
   const [content, setContent] = useState({})
+  const navigate = useNavigate();
 
   const inputContent = (e) => {
     let content = e.target.value
@@ -41,10 +43,25 @@ function PostInput({ posts, setPosts }) {
     }
   }
 
+  const directLogin = () => {
+    navigate("/login")
+  }
+
   return (
     <div className="post-input-box">
-        <input className="post-input" placeholder="내용을 입력하세요" type="text" value={content.content} onChange={inputContent} onKeyPress={enterKey}></input>
-        <div className="post-button" onClick={createPost}>게시</div>
+      {
+        isLogin ?
+        <>
+          <input className="post-input" placeholder="내용을 입력하세요" type="text" value={content.content} onChange={inputContent} onKeyPress={enterKey}></input>
+          <div className="post-button" onClick={createPost}>게시</div>
+        </>
+        : 
+        <>
+          <input className="post-input" placeholder="게시글 작성 기능은 로그인 후 이용할 수 있습니다." type="text" value="" readOnly></input>
+          <div className="post-button" onClick={directLogin} >로그인</div>
+        </>
+      }
+
     </div>
   );
 }

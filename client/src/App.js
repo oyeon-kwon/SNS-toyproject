@@ -3,25 +3,57 @@ import './App.css';
 import Signup from './Signup';
 import Login from './Login';
 import Feed from './Feed';
-import PostInput from './PostInput';
 import postList from './postData';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import logo from './moneelab.png'
 
 function App() {
 
-  // TODO: 회원가입, 로그인 구현
-  
   const [posts, setPosts] = useState([]);
+  const [isLogin, setIsLogin] = useState(false)
 
   useEffect(() => {
     setPosts(postList)
   }, [])
 
+  const logout = () => {
+    isLogin(false)
+  }
+
   return (
-    <div className="App">
-      {/* <Signup /> */}
-      <Login />
-      {/* <PostInput posts={posts} setPosts={setPosts}/> */}
-      {/* <Feed posts={posts} /> */}
+    <div>
+      <Router>
+      <div className="nav">
+        <span className="home-box">
+          <span className="nav-link">
+            <Link to="/"><img src={logo} className="logo" /></Link>
+          </span>
+        </span>
+        <span className="signup-login-box">
+          <span className="nav-link">
+            {
+              isLogin ? <Link to="/" onClick={logout}>로그아웃</Link>
+              : <Link to="/login">로그인</Link>
+            }
+            
+          </span>
+          <span className="nav-link">
+            <Link to="/signup">회원가입</Link>
+          </span>
+        </span>
+      </div>
+        <Routes>
+          <Route path="/signup" element={ <Signup /> } />
+          <Route path="/login" element={ <Login setIsLogin={setIsLogin} /> } />
+          <Route path="/" element={ <Feed posts={posts} setPosts={setPosts} isLogin={isLogin} /> } />
+        </Routes>
+      
+    </Router>
     </div>
   );
 }
