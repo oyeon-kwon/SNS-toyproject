@@ -1,6 +1,8 @@
 # SNS-toyproject
 
 ## 완성본 미리보기
+![demo](https://user-images.githubusercontent.com/61301574/167523966-ead6717f-70be-41d0-a8e7-880ca4669342.gif)
+
 
 ## 프로젝트 실행 방법
 ```
